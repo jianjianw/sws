@@ -30,7 +30,7 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
         String url = nhhosUtil.getUrl(systemBookCode);
         AdjustmentOrderRpc adjustmentOrderRpc = nhhosUtil.createCenterObject(AdjustmentOrderRpc.class, url);
 
-
+        //adjustmentOrderRpc.
 
         return null;
     }
