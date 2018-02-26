@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.nhsoft:provider-base:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/provider-base/1.0-SNAPSHOT/provider-base-1.0-20180226.001823-147.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/provider-base/1.0-SNAPSHOT/provider-base-1.0-20180226.001823-147-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/provider-base/1.0-SNAPSHOT/provider-base-1.0-20180226.001823-147-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

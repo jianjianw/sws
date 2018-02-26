@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.nhsoft:module-inventory-export:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/module-inventory-export/1.0-SNAPSHOT/module-inventory-export-1.0-20180226.001841-146.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/module-inventory-export/1.0-SNAPSHOT/module-inventory-export-1.0-20180226.001841-146-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/module-inventory-export/1.0-SNAPSHOT/module-inventory-export-1.0-20180226.001841-146-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

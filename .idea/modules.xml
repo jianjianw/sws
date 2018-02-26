@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../sws/ama-export/ama-export.iml" filepath="$PROJECT_DIR$/../sws/ama-export/ama-export.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/ama-internal/ama-internal.iml" filepath="$PROJECT_DIR$/../sws/ama-internal/ama-internal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/sws.iml" filepath="$PROJECT_DIR$/../sws/sws.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/sws-export/sws-export.iml" filepath="$PROJECT_DIR$/../sws/sws-export/sws-export.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/sws-internal/sws-internal.iml" filepath="$PROJECT_DIR$/../sws/sws-internal/sws-internal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/sws-provider/sws-provider.iml" filepath="$PROJECT_DIR$/../sws/sws-provider/sws-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/sws-schedule/sws-schedule.iml" filepath="$PROJECT_DIR$/../sws/sws-schedule/sws-schedule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sws/sws-utils/sws-utils.iml" filepath="$PROJECT_DIR$/../sws/sws-utils/sws-utils.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ama-export" />
+        <module name="ama-internal" />
+        <module name="base-internal" />
+        <module name="schedule" />
+        <module name="sws-export" />
+        <module name="sws-internal" />
+        <module name="sws-provider" />
+        <module name="sws-schedule" />
+        <module name="sws-utils" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ama-export" target="1.5" />
+      <module name="ama-internal" target="1.5" />
+      <module name="base-internal" target="1.5" />
+      <module name="schedule" target="1.5" />
+      <module name="sws" target="1.5" />
+      <module name="sws-export" target="1.8" />
+      <module name="sws-internal" target="1.8" />
+      <module name="sws-provider" target="1.8" />
+      <module name="sws-schedule" target="1.8" />
+      <module name="sws-utils" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

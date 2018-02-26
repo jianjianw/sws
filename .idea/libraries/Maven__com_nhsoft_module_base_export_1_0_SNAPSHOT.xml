@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.nhsoft:module-base-export:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/module-base-export/1.0-SNAPSHOT/module-base-export-1.0-20180226.001832-174.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/module-base-export/1.0-SNAPSHOT/module-base-export-1.0-20180226.001832-174-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nhsoft/module-base-export/1.0-SNAPSHOT/module-base-export-1.0-20180226.001832-174-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

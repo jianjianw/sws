@@ -1,0 +1,102 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="sws-provider:war exploded">
+    <output-path>$PROJECT_DIR$/../sws/sws-provider/target/sws-provider-1.5.6.RELEASE</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="sws-provider" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.17" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.0.12.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.21.0-GA" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Maven: org.jboss:jandex:2.0.0.Final" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.0.12.Final" />
+          <element id="library" level="project" name="Maven: javax.transaction:javax.transaction-api:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:1.11.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.13.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.16" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:8.5.16" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.16" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.3.5.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.9" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.9" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-log4j2:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.7" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.7" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.7" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
+          <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:1.5.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.16" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:8.5.16" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: net.sourceforge.jtds:jtds:1.3.1" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.2" />
+          <element id="archive" name="sws-internal-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="sws-internal" />
+          </element>
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-base-export/1.0-SNAPSHOT/module-base-export-1.0-20180226.001832-174.jar" output-file-name="module-base-export-1.0-SNAPSHOT.jar" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-origin-export/1.0-SNAPSHOT/module-origin-export-1.0-20180226.001826-154.jar" output-file-name="module-origin-export-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/validate/1.0-SNAPSHOT/validate-1.0-20180226.001825-146.jar" output-file-name="validate-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/provider-base/1.0-SNAPSHOT/provider-base-1.0-20180226.001823-147.jar" output-file-name="provider-base-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-transfer-export/1.0-SNAPSHOT/module-transfer-export-1.0-20180226.001849-148.jar" output-file-name="module-transfer-export-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-wholesale-export/1.0-SNAPSHOT/module-wholesale-export-1.0-20180226.001849-145.jar" output-file-name="module-wholesale-export-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-pos-export/1.0-SNAPSHOT/module-pos-export-1.0-20180226.001844-156.jar" output-file-name="module-pos-export-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-message-export/1.0-SNAPSHOT/module-message-export-1.0-20180226.001837-144.jar" output-file-name="module-message-export-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-inventory-export/1.0-SNAPSHOT/module-inventory-export-1.0-20180226.001841-146.jar" output-file-name="module-inventory-export-1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/nhsoft/module-infrastructure-export/1.0-SNAPSHOT/module-infrastructure-export-1.0-20180226.001827-146.jar" output-file-name="module-infrastructure-export-1.0-SNAPSHOT.jar" />
+          <element id="archive" name="sws-export-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="sws-export" />
+          </element>
+          <element id="archive" name="sws-utils-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="sws-utils" />
+          </element>
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.6" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.1" />
+          <element id="archive" name="sws-schedule-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="sws-schedule" />
+          </element>
+          <element id="archive" name="ama-internal-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ama-internal" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../sws/sws-provider/target/sws-provider-1.5.6.RELEASE/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="sws-provider/web/Web" />
+    </root>
+  </artifact>
+</component>
