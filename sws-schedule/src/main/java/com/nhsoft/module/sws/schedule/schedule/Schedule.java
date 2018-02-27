@@ -4,6 +4,7 @@ package com.nhsoft.module.sws.schedule.schedule;
 import com.nhsoft.module.sws.export.model.*;
 import com.nhsoft.module.sws.export.rpc.*;
 import com.nhsoft.module.sws.schedule.internal.ImportData;
+import com.nhsoft.module.sws.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,8 @@ public class Schedule {
 
     @Autowired
     private ImportData importData;
+    @Autowired
+    private TTimeStampRpc timeStampRpc;
 
 
     @Autowired
@@ -97,8 +100,25 @@ public class Schedule {
 
     }
 
-    @Scheduled(cron="0 0 * * * *")
+    @Scheduled(cron="0 * * * * *")
     public void saveItemcgRk(){
+        Calendar calendar = Calendar.getInstance();
+        Date dateTo = calendar.getTime();
+        TTimeStamp tTimeStamp = new TTimeStamp();
+        tTimeStamp.setQueryTime(dateTo);
+        timeStampRpc.saveQueryTime(tTimeStamp);
+        System.out.println("时间存储成功");
+
+        int hour = calendar.get(Calendar.HOUR);
+        if(hour < 1){
+            Date minDate = DateUtil.getMinOfDate(dateTo);
+            importData.saveItemcgRk(systemBookCode,minDate,dateTo);
+        }else{
+            Date dateFrom = timeStampRpc.readMaxTime();
+            System.out.println("时间读取成功");
+            importData.saveItemcgRk(systemBookCode,dateFrom,dateTo);
+            System.out.println("调出单存储成功");
+        }
 
     }
 

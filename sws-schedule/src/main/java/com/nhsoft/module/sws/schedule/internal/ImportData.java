@@ -6,6 +6,7 @@ import com.nhsoft.module.sws.export.rpc.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -27,6 +28,10 @@ public class ImportData {
     private TPaystyleRpc tPaystyleRpc;
     @Autowired
     private TTypeRpc tTypeRpc;
+
+
+    @Autowired
+    private TItemcgRkRpc tItemcgRkRpc;
 
 
 
@@ -68,6 +73,12 @@ public class ImportData {
     public void saveType(String systemBookCode){
         List<TType> tTypes = tTypeRpc.findByCenter(systemBookCode);
         tTypeRpc.batchSaveType(tTypes);
+    }
+
+    public void saveItemcgRk(String systemBookCode,Date dateFrom,Date dateTo){
+        List<TItemcgRk> tItemcgRks = tItemcgRkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+        tItemcgRkRpc.batchSaveItemcgRk(tItemcgRks);
+
     }
 
 }

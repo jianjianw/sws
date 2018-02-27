@@ -18,11 +18,6 @@
             <artifactId>sws-export</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.nhsoft</groupId>
-            <artifactId>ama-internal</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

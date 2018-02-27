@@ -44,7 +44,8 @@ public class TTollMaterialRpcImpl implements TTollMaterialRpc {
         int size = posItems.size();
         List<TTollMaterial> list = new ArrayList<>(size);
 
-
+        Calendar calendar = Calendar.getInstance();
+        Date time = calendar.getTime();
         for (int i = 0; i < size ; i++) {
             PosItemDTO dto = posItems.get(i);
             TTollMaterial tTollMaterial = new TTollMaterial();
@@ -60,8 +61,6 @@ public class TTollMaterialRpcImpl implements TTollMaterialRpc {
             tTollMaterial.setStrItemtypeName(dto.getItemCategory());        //物资类别
             tTollMaterial.setTaxrate(new BigDecimal(123));              //税率
             tTollMaterial.setBytStatus("3");                          // 记录状态
-            Calendar calendar = Calendar.getInstance();
-            Date time = calendar.getTime();
             tTollMaterial.setStrDate(time);                             //写入时间
             tTollMaterial.setStrorgname(systemBookCode);                //来自哪个机构
             list.add(tTollMaterial);

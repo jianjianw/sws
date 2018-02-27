@@ -58,8 +58,8 @@ public class NhhosUtil {
         }
         String url = systemBookProxy.getUrl();
         String serviceUrl = url.replace("pos3Server", "amazonCenter")+"/remoting/";
-        return serviceUrl;
-        //return "http://192.168.0.92:55121/amazonCenter/remoting/";
+        //return serviceUrl;
+        return "http://192.168.0.125:55121/amazonCenter/remoting/";
 
     }
 

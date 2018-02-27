@@ -16,4 +16,9 @@ public class TTimeStampServiceImpl implements TTimeStampService {
     public void saveQueryTime(TTimeStamp timeStamp) {
         tTimeStampDao.saveQueryTime(timeStamp);
     }
+
+    @Override
+    public Object readMaxTime() {
+        return tTimeStampDao.readMaxTime();
+    }
 }

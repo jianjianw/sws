@@ -1,6 +1,8 @@
 package com.nhsoft.module.sws.export.model;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,18 +12,19 @@ import java.util.Date;
 public class TTimeStamp implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer timeId;
+    @GenericGenerator(name="idGenerator", strategy="uuid") //这个是hibernate的注解/生成32位UUID
+    @GeneratedValue(generator="idGenerator")
+    private String timeId;
 
     private Date queryTime;
 
 
     @Column(name = "timeId")
-    public Integer getTimeId() {
+    public String getTimeId() {
         return timeId;
     }
 
-    public void setTimeId(Integer timeId) {
+    public void setTimeId(String timeId) {
         this.timeId = timeId;
     }
 

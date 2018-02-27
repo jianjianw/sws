@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
 /**
  * 收货单–物品采购单中间表	(t_itemcg_rk)
  * */
