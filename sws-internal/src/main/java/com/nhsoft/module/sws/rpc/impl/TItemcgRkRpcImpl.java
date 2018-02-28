@@ -74,7 +74,7 @@ public class TItemcgRkRpcImpl implements TItemcgRkRpc {
             ReceiveOrderDTO dto = receiveOrderDTOS.get(i);
             TItemcgRk itemcgRk = new TItemcgRk();
             itemcgRk.setLngActivityId(dto.getReceiveOrderFid());
-            itemcgRk.setLngReceiptNo(dto.getReceiveOrderBillNo());
+            itemcgRk.setLngReceiptNo(dto.getReceiveOrderBillNo() == null ? dto.getReceiveOrderFid() : dto.getReceiveOrderBillNo());
             itemcgRk.setLngxhActivityId("ActivityId");
             itemcgRk.setIntDirection("0");
             itemcgRk.setStrplaymethod("微信");
@@ -86,9 +86,9 @@ public class TItemcgRkRpcImpl implements TItemcgRkRpc {
             itemcgRk.setDblQuantity(new BigDecimal(111));
             itemcgRk.setDblPurchasePrice(dto.getReceiveOrderTotalMoney());
             itemcgRk.setStremployeecode(dto.getReceiveOrderOperator());
-            itemcgRk.setStrdepartmentcode(dto.getBranchName());
+            itemcgRk.setStrdepartmentcode(String.valueOf(dto.getBranchNum()));//部门名称
             itemcgRk.setStrPositionName(String.valueOf(dto.getStorehouseNum()));
-            itemcgRk.setBytStatus("1");
+            itemcgRk.setBytStatus("0");     //  0-未处理  1-已处理
             itemcgRk.setStrDate(time);
             itemcgRk.setIsnotposition(String.valueOf(dto.getStorehouseNum()));
             itemcgRk.setStrorgcode(systemBookCode);
