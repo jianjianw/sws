@@ -14,4 +14,8 @@ public class TItempkCkServiceImpl implements TItempkCkService {
     @Autowired
     private TItempkCkDao tItempkCkDao;
 
+    @Override
+    public void batchSaveItempkCk(List<TItempkCk> itempkCks) {
+        tItempkCkDao.batchSaveItempkCk(itempkCks);
+    }
 }

@@ -7,6 +7,7 @@ import com.nhsoft.module.base.export.dto.OrderQueryCondition;
 import com.nhsoft.module.base.export.rpc.BranchRpc;
 import com.nhsoft.module.inventory.export.rpc.AdjustmentOrderRpc;
 import com.nhsoft.module.origin.export.AppConstants;
+import com.nhsoft.module.origin.export.State;
 import com.nhsoft.module.sws.export.model.TItemotherRk;
 import com.nhsoft.module.sws.export.rpc.TItemotherRkRpc;
 import com.nhsoft.module.sws.service.TItemotherRkService;
@@ -49,14 +50,14 @@ public class TItemotherRkRpcImpl implements TItemotherRkRpc {
             branchNums.add(branchDTO.getBranchNum());
         }
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             dateFrom = sdf.parse("2017-01-01 00:00:00");
 
             dateTo = sdf.parse("2018-02-27 23:59:59");
         } catch (ParseException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
@@ -65,6 +66,9 @@ public class TItemotherRkRpcImpl implements TItemotherRkRpc {
         query.setDateType(AppConstants.STATE_AUDIT_TIME);//审核时间
         query.setDateStart(dateFrom);
         query.setDateEnd(dateTo);
+        State state = new State();
+        state.setStateCode(AppConstants.STATE_AUDIT_CODE);
+        query.setState(state);
 
         List<AdjustmentOrderDTO> adjustmentOrderDTOS = adjustmentOrderRpc.findOrderByTime(systemBookCode, query, AppConstants.ADJUSTMENT_DIRECTION_IN);
         int size = adjustmentOrderDTOS.size();
@@ -78,7 +82,7 @@ public class TItemotherRkRpcImpl implements TItemotherRkRpc {
             itemotherRk.setLngActivityId(adjustmentOrderDTO.getAdjustmentOrderFid());
             itemotherRk.setLngReceiptNo(adjustmentOrderDTO.getAdjustmentOrderFid());
             itemotherRk.setIntDirection("0");
-            itemotherRk.setStrcustomercode("????");// 采购单位  供应商编码
+
             itemotherRk.setStremployeecode(adjustmentOrderDTO.getAdjustmentOrderCreator());
             itemotherRk.setStrdepartmentcode(String.valueOf(adjustmentOrderDTO.getBranchNum()));
             itemotherRk.setStrPositionName(String.valueOf(adjustmentOrderDTO.getStorehouseNum()));
@@ -88,7 +92,7 @@ public class TItemotherRkRpcImpl implements TItemotherRkRpc {
 
             List<AdjustmentOrderDetailDTO> details = adjustmentOrderDTO.getAdjustmentOrderDetails();
             for (int j = 0,len = details.size(); j < len; j++) {
-                AdjustmentOrderDetailDTO detail = details.get(i);
+                AdjustmentOrderDetailDTO detail = details.get(j);
                 itemotherRk.setLngxhActivityId(String.valueOf(detail.getAdjustmentOrderDetailNum()));
                 itemotherRk.setLngTollMaterialD(String.valueOf(detail.getItemNum()));
                 itemotherRk.setStrTollMaterialName(detail.getAdjustmentOrderDetailItemName());
@@ -97,6 +101,7 @@ public class TItemotherRkRpcImpl implements TItemotherRkRpc {
                 itemotherRk.setDblQuantity(detail.getAdjustmentOrderDetailQty());
                 itemotherRk.setDblPurchasePrice(detail.getAdjustmentOrderDetailPrice());
                 itemotherRk.setDblamount(detail.getAdjustmentOrderDetailPrice());
+                itemotherRk.setStrcustomercode(String.valueOf(detail.getSupplierNum()));// 采购单位  供应商编码
                 /**   ????单价和金额 有什么区别
                  * private BigDecimal dblPurchasePrice;           //单价
                    private BigDecimal dblamount;                  //金额

@@ -7,6 +7,7 @@ import com.nhsoft.module.base.export.dto.OrderQueryCondition;
 import com.nhsoft.module.base.export.rpc.BranchRpc;
 import com.nhsoft.module.inventory.export.rpc.AdjustmentOrderRpc;
 import com.nhsoft.module.origin.export.AppConstants;
+import com.nhsoft.module.origin.export.State;
 import com.nhsoft.module.sws.export.model.TItemotherCk;
 import com.nhsoft.module.sws.export.model.TItemotherRk;
 import com.nhsoft.module.sws.export.model.TItempkCk;
@@ -16,6 +17,8 @@ import com.nhsoft.module.sws.utils.NhhosUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -41,17 +44,32 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
         BranchRpc branchRpc = nhhosUtil.createCenterObject(BranchRpc.class, url);
         List<BranchDTO> brnachs = branchRpc.findAll(systemBookCode);
 
-
         List<Integer> branchNums = new ArrayList<>();
         for (int i = 0,len = brnachs.size(); i < len ; i++) {
             BranchDTO branchDTO = brnachs.get(i);
             branchNums.add(branchDTO.getBranchNum());
         }
+
+
+      /*  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            dateFrom = sdf.parse("2017-01-01 00:00:00");
+
+            dateTo = sdf.parse("2018-02-27 23:59:59");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
+
+
+
         OrderQueryCondition query = new OrderQueryCondition();
         query.setToBranchNums(branchNums);
         query.setDateType(AppConstants.STATE_AUDIT_TIME);//审核时间
         query.setDateStart(dateFrom);
         query.setDateEnd(dateTo);
+        State state = new State();
+        state.setStateCode(AppConstants.STATE_AUDIT_CODE);
+        query.setState(state);
 
         List<AdjustmentOrderDTO> adjustmentOrderDTOS = adjustmentOrderRpc.findOrderByTime(systemBookCode, query, AppConstants.ADJUSTMENT_DIRECTION_OUT);
 
@@ -66,7 +84,7 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
             itemotherCk.setLngActivityId(adjustmentOrderDTO.getAdjustmentOrderFid());
             itemotherCk.setLngReceiptNo(adjustmentOrderDTO.getAdjustmentOrderFid());
             itemotherCk.setIntDirection("0");
-            itemotherCk.setStrcustomercode("????");// 采购单位  供应商编码
+
             itemotherCk.setStremployeecode(adjustmentOrderDTO.getAdjustmentOrderCreator());
             itemotherCk.setStrdepartmentcode(String.valueOf(adjustmentOrderDTO.getBranchNum()));
             itemotherCk.setStrPositionName(String.valueOf(adjustmentOrderDTO.getStorehouseNum()));
@@ -76,7 +94,7 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
 
             List<AdjustmentOrderDetailDTO> details = adjustmentOrderDTO.getAdjustmentOrderDetails();
             for (int j = 0,len = details.size(); j < len; j++) {
-                AdjustmentOrderDetailDTO detail = details.get(i);
+                AdjustmentOrderDetailDTO detail = details.get(j);
                 itemotherCk.setLngxhActivityId(String.valueOf(detail.getAdjustmentOrderDetailNum()));
                 itemotherCk.setLngTollMaterialD(String.valueOf(detail.getItemNum()));
                 itemotherCk.setStrTollMaterialName(detail.getAdjustmentOrderDetailItemName());
@@ -85,6 +103,7 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
                 itemotherCk.setDblQuantity(detail.getAdjustmentOrderDetailQty());
                 itemotherCk.setDblPurchasePrice(detail.getAdjustmentOrderDetailPrice());
                 itemotherCk.setDblamount(detail.getAdjustmentOrderDetailPrice());
+                itemotherCk.setStrcustomercode(String.valueOf(detail.getSupplierNum()));// 采购单位  供应商编码
                 /**   ????单价和金额 有什么区别
                  * private BigDecimal dblPurchasePrice;           //单价
                  private BigDecimal dblamount;                  //金额

@@ -44,16 +44,18 @@ public class ImportData {
     private TItemotherRkRpc tItemotherRkRpc;
     @Autowired
     private TItemotherCkRpc tItemotherCkRpc;
+    @Autowired
+    private TItempyRkRpc tItempyRkRpc;
+    @Autowired
+    private TItempkCkRpc tItempkCkRpc;
+
 
 
 
 
     @Autowired
     private TItemDaaRpc tItemDaaRpc;
-    @Autowired
-    private TItempkCkRpc tItempkCkRpc;
-    @Autowired
-    private TItempyRkRpc tItempyRkRpc;
+
     @Autowired
     private TItemsalseRkRpc tItemsalseRkRpc;
     @Autowired
@@ -141,6 +143,7 @@ public class ImportData {
         }
 
         tItemotherRkRpc.batchSaveItemotherRk(itemotherRks);
+        System.out.println("数据存储成功");
     }
 
     public void saveItemotherCk(String systemBookCode){
@@ -150,9 +153,9 @@ public class ImportData {
         TTimeStamp tTimeStamp = new TTimeStamp();
         tTimeStamp.setQueryTime(dateTo);
         timeStampRpc.saveQueryTime(tTimeStamp);
-
-        List<TItemotherCk> itemotherCks = null;
         int hour = calendar.get(Calendar.HOUR);
+        List<TItemotherCk> itemotherCks = null;
+
         if(hour < 1){
             Date minDate = DateUtil.getMinOfDate(dateTo);
             itemotherCks = tItemotherCkRpc.findByCenter(systemBookCode, minDate, dateTo);
@@ -161,7 +164,39 @@ public class ImportData {
             itemotherCks = tItemotherCkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
         }
         tItemotherCkRpc.batchSaveItemotherCk(itemotherCks);
+        System.out.println("数据存储成功");
 
     }
+
+
+    public void saveItempyRk(String systemBookCode){
+        Calendar calendar = Calendar.getInstance();
+        Date dateTo = calendar.getTime();
+        TTimeStamp tTimeStamp = new TTimeStamp();
+        tTimeStamp.setQueryTime(dateTo);
+        timeStampRpc.saveQueryTime(tTimeStamp);
+        int hour = calendar.get(Calendar.HOUR);
+        List<TItempyRk> itempyRks = null;
+
+        if(hour < 1){
+            Date minDate = DateUtil.getMinOfDate(dateTo);
+            itempyRks = tItempyRkRpc.findByCenter(systemBookCode, minDate, dateTo);
+        }else{
+            Date dateFrom = timeStampRpc.readMaxTime();
+            itempyRks = tItempyRkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+        }
+
+        tItempyRkRpc.batchSaveItempyRk(itempyRks);
+        System.out.println("数据存储成功");
+
+
+    }
+
+
+
+    public void saveItempkCk(String ststemBookCode){
+
+    }
+
 
 }

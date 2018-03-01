@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface TItempkCkRpc {
 
+    public void batchSaveItempkCk(List<TItempkCk> itempkCks);
 
     public List<TItempkCk> findByCenter(String systemBookCode, Date dateFrom, Date dateTo);
 

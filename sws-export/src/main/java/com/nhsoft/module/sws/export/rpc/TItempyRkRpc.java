@@ -9,6 +9,11 @@ import java.util.List;
 public interface TItempyRkRpc {
 
 
+    public void batchSaveItempyRk(List<TItempyRk> itempyRks);
+
     public List<TItempyRk> findByCenter(String systemBookCode, Date dateFrom, Date dateTo);
+
+
+
 
 }

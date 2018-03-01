@@ -7,4 +7,7 @@ import java.util.List;
 public interface TItempkCkDao {
 
 
+    public void batchSaveItempkCk(List<TItempkCk> itempkCks);
+
+
 }

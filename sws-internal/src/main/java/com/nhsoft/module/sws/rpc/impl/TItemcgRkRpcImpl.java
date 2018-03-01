@@ -5,6 +5,7 @@ import com.nhsoft.module.base.export.dto.OrderQueryCondition;
 import com.nhsoft.module.base.export.rpc.BranchRpc;
 import com.nhsoft.module.inventory.export.dto.ReceiveOrderDetailDTO;
 import com.nhsoft.module.origin.export.AppConstants;
+import com.nhsoft.module.origin.export.State;
 import com.nhsoft.module.sws.export.model.TItemcgRk;
 import com.nhsoft.module.sws.export.rpc.TItemcgRkRpc;
 import com.nhsoft.module.sws.service.TItemcgRkService;
@@ -65,6 +66,9 @@ public class TItemcgRkRpcImpl implements TItemcgRkRpc {
         query.setDateStart(dateFrom);
         query.setDateEnd(dateTo);
         query.setDateType(AppConstants.STATE_AUDIT_TIME);
+        State state = new State();
+        state.setStateCode(AppConstants.STATE_AUDIT_CODE);
+        query.setState(state);
 
         List<ReceiveOrderDTO> receiveOrderDTOS = receiveOrderRpc.findOrderByTime(systemBookCode, query);
         int size = receiveOrderDTOS.size();

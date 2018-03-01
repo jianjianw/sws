@@ -89,14 +89,24 @@ public class Schedule {
     }
 
 
-    @Scheduled(cron="0 * * * * *")
+    @Scheduled(cron="0 0 0 * * *")
     public void saveItemotherRk(){
         importData.saveItemotherRk(systemBookCode);
     }
 
-    @Scheduled(cron="0 0 * * * *")
+    @Scheduled(cron="0 0 0 * * *")
     public void saveItemotherCk(){
         importData.saveItemotherCk(systemBookCode);
+    }
+
+    @Scheduled(cron="0 0 * * * *")
+    public void saveItempyRk(){
+        importData.saveItempyRk(systemBookCode);
+    }
+
+    @Scheduled(cron="0 0 * * * *")
+    public void saveItempkCk(){
+        importData.saveItempkCk(systemBookCode);
     }
 
 
@@ -104,18 +114,6 @@ public class Schedule {
     public void saveItemDaa(){
 
     }
-
-    @Scheduled(cron="0 0 * * * *")
-    public void saveItempkCk(){
-
-    }
-
-
-    @Scheduled(cron="0 0 * * * *")
-    public void saveItempyRk(){
-
-    }
-
 
     @Scheduled(cron="0 0 * * * *")
     public void saveItemsalseRk(){

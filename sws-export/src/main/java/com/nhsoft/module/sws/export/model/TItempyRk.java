@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
 /**
  * 盘点单盘盈部分–盘盈入库单(t_itempy_rk)
  * */
