@@ -42,7 +42,6 @@ public class TItempkCkRpcImpl implements TItempkCkRpc {
         String url = nhhosUtil.getUrl(systemBookCode);
         CheckOrderRpc checkOrderRpc = nhhosUtil.createCenterObject(CheckOrderRpc.class, url);
 
-
         BranchRpc branchRpc = nhhosUtil.createCenterObject(BranchRpc.class, url);
         List<BranchDTO> brnachs = branchRpc.findAll(systemBookCode);
         List<Integer> branchNums = new ArrayList<>();
@@ -73,7 +72,6 @@ public class TItempkCkRpcImpl implements TItempkCkRpc {
             itempkCk.setLngReceiptNo(checkOrderDTO.getCheckOrderFid());
 
             itempkCk.setIntDirection("0");
-
             itempkCk.setDblamount(checkOrderDTO.getCheckOrderMoney());//金额
             itempkCk.setStrPositionName(String.valueOf(checkOrderDTO.getStorehouseNum()));
             itempkCk.setBytStatus("0");
@@ -86,21 +84,17 @@ public class TItempkCkRpcImpl implements TItempkCkRpc {
                 BigDecimal subtract = detail.getCheckOrderDetailQty().subtract(detail.getCheckOrderDetailStockAmount());
                 if(subtract.compareTo(BigDecimal.ZERO) < 0) {  //盘亏
                     /**
-                     *  private BigDecimal dblQuantity;                //数量
                      private BigDecimal dblPurchasePrice;          //销售价格
                      private BigDecimal dblSalePrice;               //单价
-                     *
                      * */
-
                     itempkCk.setLngxhActivityId(String.valueOf(detail.getCheckOrderDetailNum()));
                     itempkCk.setLngTollMaterialD(String.valueOf(detail.getItemNum()));
                     itempkCk.setStrTollMaterialName(detail.getCheckOrderDetailItemName());
                     itempkCk.setStrTollMaterialStyle(detail.getCheckOrderDetailSpec());
                     itempkCk.setStrUnitName(detail.getCheckOrderDetailUseUnit());
                     itempkCk.setDblQuantity(detail.getCheckOrderDetailQty());
-                    //itempkCk.setDblPurchasePrice();
-                    //itempkCk.setDblSalePrice();
-
+                    itempkCk.setDblPurchasePrice(detail.getCheckOrderDetailPrice());//??
+                    itempkCk.setDblSalePrice(detail.getCheckOrderDetailPrice());//??
                     list.add(itempkCk);
                 }
             }

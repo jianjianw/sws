@@ -22,4 +22,13 @@ public class TTimeStampDaoImpl extends DaoImpl implements TTimeStampDao {
         SQLQuery sqlQuery = currentSession().createSQLQuery(sb.toString());
         return sqlQuery.uniqueResult();
     }
+
+    @Override
+    public void deleteTimeStamp(Date date) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("delete from t_timestamp where queryTime < :queryTime");
+        SQLQuery sqlQuery = currentSession().createSQLQuery(sb.toString());
+        sqlQuery.setDate("queryTime",date);
+        sqlQuery.executeUpdate();
+    }
 }

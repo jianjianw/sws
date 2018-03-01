@@ -177,7 +177,6 @@ public class ImportData {
         timeStampRpc.saveQueryTime(tTimeStamp);
         int hour = calendar.get(Calendar.HOUR);
         List<TItempyRk> itempyRks = null;
-
         if(hour < 1){
             Date minDate = DateUtil.getMinOfDate(dateTo);
             itempyRks = tItempyRkRpc.findByCenter(systemBookCode, minDate, dateTo);
@@ -193,10 +192,38 @@ public class ImportData {
     }
 
 
+    public void saveItempkCk(String systemBookCode){
+        Calendar calendar = Calendar.getInstance();
+        Date dateTo = calendar.getTime();
+        TTimeStamp tTimeStamp = new TTimeStamp();
+        tTimeStamp.setQueryTime(dateTo);
+        timeStampRpc.saveQueryTime(tTimeStamp);
+        int hour = calendar.get(Calendar.HOUR);
+        List<TItempkCk> itempkCks = null;
 
-    public void saveItempkCk(String ststemBookCode){
+        if(hour < 1){
+            Date minDate = DateUtil.getMinOfDate(dateTo);
+            itempkCks = tItempkCkRpc.findByCenter(systemBookCode, minDate, dateTo);
+        }else{
+            Date dateFrom = timeStampRpc.readMaxTime();
+            itempkCks = tItempkCkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+        }
 
+        tItempkCkRpc.batchSaveItempkCk(itempkCks);
+        System.out.println("数据存储成功");
     }
 
+
+
+
+
+
+
+    public void deleteTimeStamp(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH,-1);
+        Date time = DateUtil.getMinOfDate(calendar.getTime());
+        timeStampRpc.deleteTimeStamp(time);
+    }
 
 }

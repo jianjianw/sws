@@ -24,4 +24,11 @@ public class TTimeStampRpcImpl implements TTimeStampRpc {
     public Date readMaxTime() {
         return (Date)tTimeStampService.readMaxTime();
     }
+
+    @Override
+    public void deleteTimeStamp(Date date) {
+        tTimeStampService.deleteTimeStamp(date);
+    }
+
+
 }

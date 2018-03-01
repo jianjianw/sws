@@ -9,4 +9,7 @@ public interface TTimeStampRpc {
     public void saveQueryTime(TTimeStamp timeStamp);
 
     public Date readMaxTime();
+
+    public void deleteTimeStamp(Date date);
+
 }

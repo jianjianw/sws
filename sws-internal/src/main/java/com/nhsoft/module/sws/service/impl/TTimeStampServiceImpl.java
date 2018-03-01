@@ -6,6 +6,8 @@ import com.nhsoft.module.sws.service.TTimeStampService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class TTimeStampServiceImpl implements TTimeStampService {
 
@@ -21,4 +23,11 @@ public class TTimeStampServiceImpl implements TTimeStampService {
     public Object readMaxTime() {
         return tTimeStampDao.readMaxTime();
     }
+
+    @Override
+    public void deleteTimeStamp(Date date) {
+        tTimeStampDao.deleteTimeStamp(date);
+    }
+
+
 }

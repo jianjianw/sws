@@ -84,7 +84,7 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
             itemotherCk.setLngActivityId(adjustmentOrderDTO.getAdjustmentOrderFid());
             itemotherCk.setLngReceiptNo(adjustmentOrderDTO.getAdjustmentOrderFid());
             itemotherCk.setIntDirection("0");
-
+            itemotherCk.setDblamount(adjustmentOrderDTO.getAdjustmentOrderMoney());
             itemotherCk.setStremployeecode(adjustmentOrderDTO.getAdjustmentOrderCreator());
             itemotherCk.setStrdepartmentcode(String.valueOf(adjustmentOrderDTO.getBranchNum()));
             itemotherCk.setStrPositionName(String.valueOf(adjustmentOrderDTO.getStorehouseNum()));
@@ -104,10 +104,6 @@ public class TItemotherCkRpcImpl implements TItemotherCkRpc {
                 itemotherCk.setDblPurchasePrice(detail.getAdjustmentOrderDetailPrice());
                 itemotherCk.setDblamount(detail.getAdjustmentOrderDetailPrice());
                 itemotherCk.setStrcustomercode(String.valueOf(detail.getSupplierNum()));// 采购单位  供应商编码
-                /**   ????单价和金额 有什么区别
-                 * private BigDecimal dblPurchasePrice;           //单价
-                 private BigDecimal dblamount;                  //金额
-                 * */
                 list.add(itemotherCk);
             }
 

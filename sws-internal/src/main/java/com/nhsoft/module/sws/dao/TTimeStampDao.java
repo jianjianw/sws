@@ -9,4 +9,6 @@ public interface TTimeStampDao {
     public void saveQueryTime(TTimeStamp timeStamp);
 
     public Object readMaxTime();
+
+    public void deleteTimeStamp(Date date);
 }
