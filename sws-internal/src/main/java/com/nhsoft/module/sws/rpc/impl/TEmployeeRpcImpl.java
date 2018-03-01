@@ -44,7 +44,7 @@ public class TEmployeeRpcImpl implements TEmployeeRpc {
             employee.setStrEmployeeCode(dto.getEmployeeCode());
             employee.setStrEmployeeName(dto.getEmployeeName());
             employee.setStrdepartmentcode(String.valueOf(dto.getBranchNum()));
-            employee.setBytStatus("1");
+            employee.setBytStatus("0");
             employee.setStrorgcode(systemBookCode);
             list.add(employee);
         }

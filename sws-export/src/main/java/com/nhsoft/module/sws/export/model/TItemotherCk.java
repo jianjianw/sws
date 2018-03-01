@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
 /**
  * 库存调整报损–其它出库单	(t_itemother_ck)
  * */

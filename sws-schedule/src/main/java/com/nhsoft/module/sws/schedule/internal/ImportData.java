@@ -3,14 +3,21 @@ package com.nhsoft.module.sws.schedule.internal;
 
 import com.nhsoft.module.sws.export.model.*;
 import com.nhsoft.module.sws.export.rpc.*;
+import com.nhsoft.module.sws.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 @Component
 public class ImportData {
+
+
+
+    @Autowired
+    private TTimeStampRpc timeStampRpc;
 
     @Autowired
     private TTollMaterialRpc tTollMaterialRpc;
@@ -30,8 +37,27 @@ public class ImportData {
     private TTypeRpc tTypeRpc;
 
 
+
     @Autowired
     private TItemcgRkRpc tItemcgRkRpc;
+    @Autowired
+    private TItemotherRkRpc tItemotherRkRpc;
+    @Autowired
+    private TItemotherCkRpc tItemotherCkRpc;
+
+
+
+
+    @Autowired
+    private TItemDaaRpc tItemDaaRpc;
+    @Autowired
+    private TItempkCkRpc tItempkCkRpc;
+    @Autowired
+    private TItempyRkRpc tItempyRkRpc;
+    @Autowired
+    private TItemsalseRkRpc tItemsalseRkRpc;
+    @Autowired
+    private TItemTbRpc tItemTbRpc;
 
 
 
@@ -75,9 +101,66 @@ public class ImportData {
         tTypeRpc.batchSaveType(tTypes);
     }
 
-    public void saveItemcgRk(String systemBookCode,Date dateFrom,Date dateTo){
-        List<TItemcgRk> tItemcgRks = tItemcgRkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+    public void saveItemcgRk(String systemBookCode){
+
+        Calendar calendar = Calendar.getInstance();
+        Date dateTo = calendar.getTime();
+        TTimeStamp tTimeStamp = new TTimeStamp();
+        tTimeStamp.setQueryTime(dateTo);
+        timeStampRpc.saveQueryTime(tTimeStamp);
+
+        List<TItemcgRk> tItemcgRks = null;
+        int hour = calendar.get(Calendar.HOUR);
+        if(hour < 1){
+            Date minDate = DateUtil.getMinOfDate(dateTo);
+            tItemcgRks = tItemcgRkRpc.findByCenter(systemBookCode, minDate, dateTo);
+        }else{
+            Date dateFrom = timeStampRpc.readMaxTime();
+            tItemcgRks = tItemcgRkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+        }
+
         tItemcgRkRpc.batchSaveItemcgRk(tItemcgRks);
+
+    }
+
+    public void saveItemotherRk(String systemBookCode){
+        Calendar calendar = Calendar.getInstance();
+        Date dateTo = calendar.getTime();
+        TTimeStamp tTimeStamp = new TTimeStamp();
+        tTimeStamp.setQueryTime(dateTo);
+        timeStampRpc.saveQueryTime(tTimeStamp);
+
+        List<TItemotherRk> itemotherRks = null;
+        int hour = calendar.get(Calendar.HOUR);
+        if(hour < 1){
+            Date minDate = DateUtil.getMinOfDate(dateTo);
+            itemotherRks = tItemotherRkRpc.findByCenter(systemBookCode, minDate, dateTo);
+        }else{
+            Date dateFrom = timeStampRpc.readMaxTime();
+            itemotherRks = tItemotherRkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+        }
+
+        tItemotherRkRpc.batchSaveItemotherRk(itemotherRks);
+    }
+
+    public void saveItemotherCk(String systemBookCode){
+
+        Calendar calendar = Calendar.getInstance();
+        Date dateTo = calendar.getTime();
+        TTimeStamp tTimeStamp = new TTimeStamp();
+        tTimeStamp.setQueryTime(dateTo);
+        timeStampRpc.saveQueryTime(tTimeStamp);
+
+        List<TItemotherCk> itemotherCks = null;
+        int hour = calendar.get(Calendar.HOUR);
+        if(hour < 1){
+            Date minDate = DateUtil.getMinOfDate(dateTo);
+            itemotherCks = tItemotherCkRpc.findByCenter(systemBookCode, minDate, dateTo);
+        }else{
+            Date dateFrom = timeStampRpc.readMaxTime();
+            itemotherCks = tItemotherCkRpc.findByCenter(systemBookCode, dateFrom, dateTo);
+        }
+        tItemotherCkRpc.batchSaveItemotherCk(itemotherCks);
 
     }
 

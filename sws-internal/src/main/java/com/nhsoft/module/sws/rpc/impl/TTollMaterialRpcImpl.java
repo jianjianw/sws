@@ -54,12 +54,12 @@ public class TTollMaterialRpcImpl implements TTollMaterialRpc {
             tTollMaterial.setStrTollMaterialName(dto.getItemName());
             tTollMaterial.setStrTollMaterialStyle(dto.getItemSpec());
             tTollMaterial.setStrUnitName(dto.getItemUnit());
-            tTollMaterial.setDblFactor("QQQ");      //换算关系(基本与库存)
+            tTollMaterial.setDblFactor("???");      //换算关系(基本与库存)
             tTollMaterial.setDblPurchasePrice(dto.getItemCostPrice());//采购价格
             tTollMaterial.setDblSalePrice(dto.getItemRegularPrice());//销售价格
             tTollMaterial.setStrSystemName(systemBookCode);                      //新希望系统名称
             tTollMaterial.setStrItemtypeName(dto.getItemCategory());        //物资类别
-            tTollMaterial.setTaxrate(new BigDecimal(123));              //税率
+            tTollMaterial.setTaxrate(new BigDecimal(123));//???              //税率
             tTollMaterial.setBytStatus("3");                          // 记录状态
             tTollMaterial.setStrDate(time);                             //写入时间
             tTollMaterial.setStrorgname(systemBookCode);                //来自哪个机构

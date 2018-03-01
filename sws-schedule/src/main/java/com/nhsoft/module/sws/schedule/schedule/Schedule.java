@@ -22,26 +22,9 @@ public class Schedule {
 
     @Autowired
     private ImportData importData;
-    @Autowired
-    private TTimeStampRpc timeStampRpc;
 
 
-    @Autowired
-    private TItemcgRkRpc tItemcgRkRpc;
-    @Autowired
-    private TItemDaaRpc tItemDaaRpc;
-    @Autowired
-    private TItemotherCkRpc tItemotherCkRpc;
-    @Autowired
-    private TItemotherRkRpc tItemotherRkRpc;
-    @Autowired
-    private TItempkCkRpc tItempkCkRpc;
-    @Autowired
-    private TItempyRkRpc tItempyRkRpc;
-    @Autowired
-    private TItemsalseRkRpc tItemsalseRkRpc;
-    @Autowired
-    private TItemTbRpc tItemTbRpc;
+
 
 
 
@@ -100,40 +83,25 @@ public class Schedule {
 
     }
 
-    @Scheduled(cron="0 * * * * *")
+    @Scheduled(cron="0 0 0 * * *")
     public void saveItemcgRk(){
-        Calendar calendar = Calendar.getInstance();
-        Date dateTo = calendar.getTime();
-        TTimeStamp tTimeStamp = new TTimeStamp();
-        tTimeStamp.setQueryTime(dateTo);
-        timeStampRpc.saveQueryTime(tTimeStamp);
-        System.out.println("时间存储成功");
-
-        int hour = calendar.get(Calendar.HOUR);
-        if(hour < 1){
-            Date minDate = DateUtil.getMinOfDate(dateTo);
-            importData.saveItemcgRk(systemBookCode,minDate,dateTo);
-        }else{
-            Date dateFrom = timeStampRpc.readMaxTime();
-            System.out.println("时间读取成功");
-            importData.saveItemcgRk(systemBookCode,dateFrom,dateTo);
-            System.out.println("调出单存储成功");
-        }
-
+        importData.saveItemcgRk(systemBookCode);
     }
 
-    @Scheduled(cron="0 0 * * * *")
-    public void saveItemDaa(){
 
+    @Scheduled(cron="0 * * * * *")
+    public void saveItemotherRk(){
+        importData.saveItemotherRk(systemBookCode);
     }
 
     @Scheduled(cron="0 0 * * * *")
     public void saveItemotherCk(){
-
+        importData.saveItemotherCk(systemBookCode);
     }
 
+
     @Scheduled(cron="0 0 * * * *")
-    public void saveItemotherRk(){
+    public void saveItemDaa(){
 
     }
 
